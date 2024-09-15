@@ -64,3 +64,4 @@ function organizeStrings(str1, str2) {
 }
 
 console.log('OUTPUT:', organizeStrings('xyaabbcccdefww', 'xxxxyyyyabklmopq'));
+console.log('OUTPUT:', organizeStrings('abcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz'));
