@@ -51,3 +51,16 @@ console.log(DuplicateLetters('indivisibility'));
 console.log(DuplicateLetters('Indivisibilities'));
 console.log(DuplicateLetters('aA11'));
 console.log(DuplicateLetters('ABBA'));
+
+console.log('---------------------------------- EX 6.3-------------------------------------------');
+
+function organizeStrings(str1, str2) {
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  let newArr = str1 + str2;
+
+  return [...new Set(newArr)].sort().join('');
+}
+
+console.log('OUTPUT:', organizeStrings('xyaabbcccdefww', 'xxxxyyyyabklmopq'));
