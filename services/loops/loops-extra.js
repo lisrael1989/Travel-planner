@@ -14,8 +14,6 @@ const destinations1 = [
 function calculates() {
   let sum = 0;
   for (const trip of destinations1) {
-    // console.log(trip);
-    // console.log(destinations1);
     sum += trip.distance / trip.speed;
   }
   return sum;
@@ -56,17 +54,30 @@ function longestDistance(destinations2) {
 
 console.log('Longest distance', longestDistance(destinations2));
 
+console.log('---------------------------- EX 3 Loops-Extra-------------------------------------');
+
 // 3. Sort Destinations by Distance
 const destinations3 = [
   {
-    name: 'Paris',
-    routes: [{ distance: 300 }, { distance: 250 }],
+    name: 'London',
+    routes: [{ distance: 200 }, { distance: 400 }],
   },
   {
-    name: 'London',
-    routes: [{ distance: 200 }, { distance: 280 }],
+    name: 'Paris',
+    routes: [{ distance: 600 }, { distance: 250 }],
   },
 ];
+
+function sortDistance(destinations3) {
+  return destinations3.sort((a, b) => {
+    const totalA = a.routes.reduce((sum, route) => sum + route.distance, 0);
+    const totalB = b.routes.reduce((sum, route) => sum + route.distance, 0);
+
+    return totalB - totalA;
+  });
+}
+
+console.log(JSON.stringify(sortDistance(destinations3), null, 2));
 
 // 4. Travel Itinerary
 const destinations4 = [
