@@ -2,7 +2,7 @@ console.log('---------------------------------- EX 1.1 -------------------------
 
 let myName = 'israssel';
 
-if (myName === 'israel') {
+if (myName.toLowerCase() === 'israel'.toLowerCase()) {
   console.log(`"Yes"-- your name is ${myName}`);
 } else {
   console.log(`"NO"- its not your name the name that you put is ${myName}`);
@@ -26,40 +26,49 @@ console.log('The answer is:', SumNumbers());
 
 console.log('---------------------------------- EX 2.2 -------------------------------------------');
 
-let binaryArr = [0, 0, 0, 1];
-
-function sumOfBinaryArr() {
+function sumOfBinaryArr(arr) {
   let sum = 0;
 
-  for (let i = 0; i < binaryArr.length; i++) {
-    let num = binaryArr[i];
+  if (arr.length === 0) {
+    console.log('The array is empty');
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
 
     if (num !== 0 && num !== 1) {
       console.log('incorrect nums');
       return;
     }
 
-    sum += num * Math.pow(2, binaryArr.length - 1 - i);
+    sum += num * Math.pow(2, arr.length - 1 - i);
   }
 
   return sum;
 }
 
-console.log('the sum of binary array is:', sumOfBinaryArr());
+console.log('the sum of binary array is:', sumOfBinaryArr([0, 0, 0, 1]));
+console.log('the sum of binary array is:', sumOfBinaryArr([])); // need to get a err msg.
 
 console.log('---------------------------------- EX 2.3 -------------------------------------------');
 
 function sqrtTest(sq) {
+  if (sq < 0) {
+    return 'Invalid input: negative number';
+  }
+
   let root = Math.sqrt(sq);
-  //   console.log(root);
+
+  if (isNaN(root)) {
+    return 'Invalid input';
+  }
 
   if (root % 1 !== 0) {
     return -1;
   }
 
-  let nextRoot = Math.floor(root) + 1;
-  //   console.log(nextRoot);
-
+  let nextRoot = root + 1;
   return nextRoot * nextRoot;
 }
 
@@ -70,10 +79,21 @@ console.log('Not perfect sqrt:', sqrtTest(114));
 console.log('---------------------------------- EX 2.4 -------------------------------------------');
 
 function findDiffNum(arr) {
-  return arr.find((num) => arr.indexOf(num) === arr.lastIndexOf(num));
+  let diffNum;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (diffNum === undefined) {
+      diffNum = arr[i];
+    } else {
+      if (arr[i] !== diffNum) {
+        return arr[i];
+      }
+    }
+  }
 }
 
 console.log('the different number:', findDiffNum([1, 1, 12, 1, 1]));
+console.log('the different number:', findDiffNum([0, 0, 0.55, 0, 0]));
 
 console.log('---------------------------------- EX 2.5 -------------------------------------------');
 
