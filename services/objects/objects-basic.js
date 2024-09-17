@@ -51,18 +51,44 @@ if (
 console.log('---------------------------- EX 4 objects-basic-------------------------------------');
 
 // // 4
-// const destinations = [
-//   { name: 'Eiffel Tower', details: { visitorsPerYear: 7000000, entryFee: '25 USD' } },
-//   { name: 'Great Wall of China', details: { visitorsPerYear: 10000000, entryFee: '60 CNY' } },
-// ];
+const destinations = [
+  { name: 'Eiffel Tower', details: { visitorsPerYear: 7000000, entryFee: '25 USD' } },
+  { name: 'Great Wall of China', details: { visitorsPerYear: 10000000, entryFee: '60 CNY' } },
+];
+
+let visitors = destinations[0].details.visitorsPerYear;
+console.log('🚀 ~ visitors first destination:', visitors);
+
+function avgOfVisitorsPerYear() {
+  let sum = 0;
+  let tripsLength = destinations.length;
+  console.log('🚀 ~ tripsLength:', tripsLength);
+  for (const trips of destinations) {
+    let newTrip = trips.details.visitorsPerYear;
+    sum += newTrip;
+  }
+  return sum / tripsLength;
+}
+console.log('🚀 ~ avgOfVisitorsPerYear:', avgOfVisitorsPerYear());
+
+console.log('---------------------------- EX 5 objects-basic-------------------------------------');
+
+// let mergeObject = Object.assign({}, destination, ...destinations);
+// console.log('🚀 ~ mergeObject:', mergeObject);
+
+console.log('---------------------------- EX 6 objects-basic-------------------------------------');
 
 // // 6
-// const destinationDetails = {
-//   name: 'Machu Picchu',
-//   country: 'Peru',
-//   yearVisited: 2019,
-//   ratings: [9, 8.5, 9, 9.5],
-// };
+const destinationDetails = {
+  name: 'Machu Picchu',
+  country: 'Peru',
+  yearVisited: 2019,
+  ratings: [9, 8.5, 9, 9.5],
+};
+
+Object.keys(destinationDetails).forEach((key) => {
+  console.log(`Property: ${key}, Value: ${destinationDetails[key]}`);
+});
 
 // // 7
 // const destinationRatings = {
